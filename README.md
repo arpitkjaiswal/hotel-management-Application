@@ -41,6 +41,9 @@ HotelManagementApp/
 ├── Customer.java
 ├── HotelManager.java
 ├── Main.java
+│
+├── README.md
+├── .gitignore
 ```
 
 ---
