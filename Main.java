@@ -29,7 +29,6 @@ public class Main extends Application {
         Label status = new Label();
         status.setStyle("-fx-font-weight: bold;");
 
-        // TABLE
         TableView<Room> table = new TableView<>();
 
         TableColumn<Room, Number> c1 = new TableColumn<>("Room");
@@ -47,7 +46,7 @@ public class Main extends Application {
         table.getColumns().addAll(c1, c2, c3, c4);
         table.setItems(hm.getRooms());
 
-        // CLICK TABLE → AUTO FILL ROOM NUMBER
+        // Table click → auto fill room number
         table.setOnMouseClicked(e -> {
             Room selected = table.getSelectionModel().getSelectedItem();
             if (selected != null) {
@@ -55,14 +54,12 @@ public class Main extends Application {
             }
         });
 
-        // BUTTONS
         Button add = new Button("Add Room");
         Button book = new Button("Book Room");
         Button checkout = new Button("Checkout");
         Button available = new Button("Show Available");
         Button showAll = new Button("Show All");
 
-        // ADD ROOM
         add.setOnAction(e -> {
             if (roomNo.getText().isEmpty() || price.getText().isEmpty() || type.getValue() == null) {
                 status.setText("Fill all room details!");
@@ -83,7 +80,6 @@ public class Main extends Application {
             type.setValue(null);
         });
 
-        // BOOK ROOM
         book.setOnAction(e -> {
 
             if (roomNo.getText().isEmpty()) {
@@ -109,7 +105,6 @@ public class Main extends Application {
             phone.clear();
         });
 
-        // CHECKOUT
         checkout.setOnAction(e -> {
 
             if (roomNo.getText().isEmpty()) {
@@ -123,19 +118,16 @@ public class Main extends Application {
             table.refresh();
         });
 
-        // SHOW AVAILABLE
         available.setOnAction(e -> {
             table.setItems(hm.getRooms().filtered(r -> !r.isBooked()));
             status.setText("Showing available rooms");
         });
 
-        // SHOW ALL
         showAll.setOnAction(e -> {
             table.setItems(hm.getRooms());
             status.setText("Showing all rooms");
         });
 
-        // LAYOUT
         GridPane form = new GridPane();
         form.setHgap(10);
         form.setVgap(10);
