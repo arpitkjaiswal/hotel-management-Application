@@ -116,17 +116,6 @@ java --module-path /Users/arpitkumarjaiswal/Downloads/javafx-sdk-26/lib \
 
 ---
 
-## 📸 Screenshots
-
-*(Add your application screenshot here)*
-Example:
-
-```markdown
-![App Screenshot](screenshot.png)
-```
-
----
-
 ## ⚠️ Notes
 
 * Requires Java 11 or higher
